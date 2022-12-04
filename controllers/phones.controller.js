@@ -42,5 +42,14 @@ module.exports.phonesController = {
         } catch (error) {
             res.json({ error: error.message })
         }
+    },
+    deletePhone: async (req, res) => {
+        try {
+            const phone = await Phone.findByIdAndDelete(req.params.id, {})
+            res.json(phone)
+        } catch (error) {
+            res.json({ error: error.message })
+        }
+
     }
 }
