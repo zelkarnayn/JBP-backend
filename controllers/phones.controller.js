@@ -2,34 +2,8 @@ const Phone = require("../models/Phone.model")
 
 module.exports.phonesController = {
     addPhone: async (req, res) => {
-        const { manufacturer, model, resolution, diagonal, density, frequency, ram, rom, name, frequencyCPU, cores, camera, battery, wight, price } = req.body
         try {
-            const phone = await Phone.create({
-                image: [],
-                manufacturer: manufacturer,
-                model: model,
-                price: price,
-                specification: {
-                    display: {
-                        resolution: resolution,
-                        diagonal: diagonal,
-                        density: density,
-                        frequency: frequency,
-                    },
-                    memory: {
-                        ram: ram,
-                        rom: rom,
-                    },
-                    processor: {
-                        name: name,
-                        frequencyCPU: frequencyCPU,
-                        cores: cores
-                    },
-                    camera: camera,
-                    battery: battery,
-                    wight: wight
-                }
-                })
+            const phone = await Phone.create(req.body)
             res.json(phone)
         } catch (error) {
             res.json({ error: error.message })
@@ -44,3 +18,24 @@ module.exports.phonesController = {
         }
     }
 }
+
+// "/images/14iphone/14iphone_1.jpg",
+// "/images/14iphone/14iphone_2.jpg",
+// "/images/14iphone/14iphone_3.jpg",
+// "/images/14iphone/14iphone_4.jpg",
+// "/images/14iphone/14iphone_5.jpg",
+// "/images/14iphone/14iphone_6.jpg",
+// "/images/14iphone/14iphone_7.jpg",
+// "/images/14iphone/14iphone_8.jpg",
+// "/images/14iphone/14iphone_9.jpg",
+// "/images/14iphone/14iphone_10.jpg",
+// "/images/14iphone/14iphone_11.jpg",
+// "/images/14iphone/14iphone_12.jpg"
+
+
+
+
+
+
+
+

@@ -23,7 +23,9 @@ const PhoneShema = mongoose.Schema({
         },
         camera: String,
         battery: String,
-        wight: String
+        wight: String,
+        discription: String,
+        amount: Number
     }
 })
 
