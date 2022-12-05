@@ -1,4 +1,4 @@
-const Phone = require("../models/Phone.model")
+const Phone = require("../models/Phone.model");
 
 module.exports.phonesController = {
     addPhone: async (req, res) => {
@@ -19,18 +19,6 @@ module.exports.phonesController = {
     }
 }
 
-// "/images/14iphone/14iphone_1.jpg",
-// "/images/14iphone/14iphone_2.jpg",
-// "/images/14iphone/14iphone_3.jpg",
-// "/images/14iphone/14iphone_4.jpg",
-// "/images/14iphone/14iphone_5.jpg",
-// "/images/14iphone/14iphone_6.jpg",
-// "/images/14iphone/14iphone_7.jpg",
-// "/images/14iphone/14iphone_8.jpg",
-// "/images/14iphone/14iphone_9.jpg",
-// "/images/14iphone/14iphone_10.jpg",
-// "/images/14iphone/14iphone_11.jpg",
-// "/images/14iphone/14iphone_12.jpg"
 
 
 
@@ -39,3 +27,4 @@ module.exports.phonesController = {
 
 
 
+ 

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose");
 
 const PhoneShema = mongoose.Schema({
     image: [],
@@ -29,5 +29,6 @@ const PhoneShema = mongoose.Schema({
     }
 })
 
-const Phone = mongoose.model('Phone', PhoneShema)
-module.exports = Phone
+
+const Phone = mongoose.model("Phone", PhoneShema);
+module.exports = Phone;
