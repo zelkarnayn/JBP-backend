@@ -11,7 +11,9 @@ module.exports.compareController = {
     },
     deleteCompare: async (req, res) => {
         try {
-            const compare = await Compare.findByIdAndRemove(req.params.id)
+            const compare = await Compare.findOneAndDelete({
+                product: req.params.id
+            }, {new: true})
             res.json(compare)
         } catch (error) {
             res.json({ error: error.message })

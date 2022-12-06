@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const cors = require("cors");
 
-
 app.use(cors())
 app.use(express.json())
 app.use(require('./routes/phones.route'))
@@ -24,5 +23,7 @@ const server = async () => {
     console.log(error.message);
   }
 };
+
+
 
 server();
