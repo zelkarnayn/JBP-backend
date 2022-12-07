@@ -1,48 +1,47 @@
-const CartItem = require("../models/CartItem.model");
-const Phone = require("../models/Phone.model");
+const Cart = require("../models/CartItem.model");
 
 module.exports.cartController = {
-    
   getFullCart: async (req, res) => {
     try {
-      const cart = await CartItem.find();
+      const cart = await Cart.find();
       res.json(cart);
     } catch (error) {
       res.json({ error: error.message });
     }
   },
-
   addCartItem: async (req, res) => {
-    const { productId, quantity } = req.body;
-
     try {
-      const product = await Phone.findOne({ _id: productId });
-
-      const image = product.image;
-      const name = product.model;
-      const price = product.price;
-
-      const newItem = await CartItem.create({
-        productId,
-        quantity,
-        image,
-        name,
-        price,
-      });
-
-      res.json(newItem);
+      const cart = await Cart.create(req.body);
+      res.json(cart);
     } catch (error) {
       res.json({ error: error.message });
     }
   },
-
   deleteCartItem: async (req, res) => {
-    const itemId = req.params.itemId;
     try {
-      const item = await CartItem.findByIdAndRemove(itemId);
-      res.json(item);
+      const cart = await Cart.findOneAndRemove({productId: req.params.id});
+      res.json(cart);
     } catch (error) {
       res.json({ error: error.message });
     }
   },
+  changeCart: async (req, res) => {
+    const {type, count} = req.body
+    console.log(req.body);
+    try {
+      if (type.toString() == 'minus' ) {
+        const cart = await Cart.findByIdAndUpdate(req.params.id, {
+          count: count
+        }, {new: true})
+        res.json(cart)
+      } else if (type.toString() == 'plus' ) {
+        const cart = await Cart.findByIdAndUpdate(req.params.id, {
+          count: count
+        }, {new: true})
+        res.json(cart)
+      }
+    } catch (error) {
+      res.json({ error: error.message });
+    }
+  }
 };
