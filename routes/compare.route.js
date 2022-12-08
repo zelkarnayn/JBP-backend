@@ -4,6 +4,6 @@ const router = Router()
 
 router.get('/compare', compareController.getCompare)
 router.post('/compare', compareController.addCompare)
-router.delete('/compare/:id', compareController.deleteCompare)
+router.delete('/compare', compareController.deleteCompare)
 
 module.exports = router

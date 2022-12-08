@@ -1,7 +1,9 @@
 const mongoose = require('mongoose')
 
 const CompareSchema = mongoose.Schema({
-    productId: String,
+    productId: {
+        type: mongoose.SchemaTypes.ObjectId
+    },
 })
 
 const Compare = mongoose.model('Compare', CompareSchema)
