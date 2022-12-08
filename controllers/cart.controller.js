@@ -27,7 +27,6 @@ module.exports.cartController = {
   },
   changeCart: async (req, res) => {
     const {type, count} = req.body
-    console.log(req.body);
     try {
       if (type.toString() == 'minus' ) {
         const cart = await Cart.findByIdAndUpdate(req.params.id, {
