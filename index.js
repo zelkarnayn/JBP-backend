@@ -9,6 +9,7 @@ app.use(express.json());
 app.use(require("./routes/phones.route"));
 app.use(require("./routes/compare.route"));
 app.use(require("./routes/cart.route"));
+app.use(require("./routes/user.route"))
 app.use("/images", express.static(__dirname + "/images"));
 
 const server = async () => {
